@@ -1,0 +1,431 @@
+<CreateAccountWindow>:
+    name: "create"
+
+    namee: namee
+    email: email
+    password: password
+
+    FloatLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba: (238/255,248/255,247/255,0.8)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Create an Account"
+            size_hint: 0.3, 0.15
+            pos_hint: {"center_x":0.5, "top": 0.9}
+            font_size: self.width/3
+            font_name: "Comic"
+            color: (92/255,64/255,51/255,1)
+
+        MDTextField:
+            id: namee
+            hint_text: 'Enter your name'
+            font_size: self.width/20
+            font_name: "Comic"
+            multiline: False
+            pos_hint: {"center_x":0.5 , "y":0.6}
+            size_hint: 0.8, 0.12
+            icon_right: "account-edit-outline"
+         #   mode: "fill"
+         #  fill_color: 0, 0, 0, .4
+
+        MDTextField:
+            id: email
+            hint_text: 'Enter your email'
+            font_size: self.width/20
+            font_name: "Comic"
+            multiline: False
+            pos_hint: {"center_x":0.5 , "y":0.45}
+            size_hint: 0.8, 0.12
+            icon_right: "email-edit-outline"
+         #   mode: "fill"
+         #  fill_color: 0, 0, 0, .4
+
+
+        MDTextField:
+            id: password
+            hint_text: 'Enter your password'
+            font_size: self.width/18
+            font_name: "Comic"
+            multiline: False
+            pos_hint: {"center_x":0.5 , "y":0.3}
+            size_hint: 0.8, 0.12
+            icon_right: "eye-outline"
+         #   mode: "fill"
+         #  fill_color: 0, 0, 0, .4
+
+        MDRoundFlatButton:
+            pos_hint:{"center_x":0.5, "y":0.15}
+            size_hint: 0.3, 0.07
+            text: "Submit"
+            font_size: self.width/5
+            font_name: "Comic"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+        MDRoundFlatButton:
+            pos_hint:{"center_x":0.5,"y":0.05}
+            size_hint: 0.8, 0.05
+            font_size: self.width/20
+            font_name: "Comic"
+            text: "Already have an Account? Log In"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.login()
+
+<LoginWindow>:
+    name: "login"
+    email: email
+    password: password
+
+    canvas.before:
+        Color:
+            rgba: (238/255,248/255,247/255,0.8)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+
+        Image:
+            source: 'Home5.png'
+            keep_ratio: True
+            allow_stretch: True
+            pos_hint: {'center_x': .5,'center_y':0.6 }
+
+        Label:
+            text:"Smart Home"
+            font_size: self.width/5
+            font_name: "Comic"
+            pos_hint: {"center_x":0.5, "top":1}
+            size_hint: 0.3, 0.15
+            color: (92/255,64/255,51/255,1)
+
+        MDTextField:
+            id:email
+            text: ""   #just for the practice
+            hint_text: 'Enter your email'
+            font_size: self.width/18
+            font_name: "Comic"
+            multiline: False
+            pos_hint: {"center_x":0.5 , "y":0.35}
+            size_hint: 0.8, 0.12
+            icon_right: "account"
+           # theme_text_color: 'custom'
+          # color_mode: 'custom':
+          #  line_color_focus: 0, 0, 0, 1
+           # text_color: 18/255, 64/255, 11/255, 0.85
+          #  mode: "fill"
+         #   fill_color: 1, 1, 1, 1
+
+        MDTextField:
+            id:password
+            text: ""
+            hint_text: 'Enter your password'
+            font_size: self.width/18
+            font_name: "Comic"
+            multiline: False
+            password: True
+            pos_hint: {"center_x":0.5, "y":0.25}
+            size_hint: 0.8, 0.12
+            icon_right: "eye-off"
+
+        MDRoundFlatButton:
+            pos_hint:{"center_x":0.5,"y":0.15}
+            size_hint: 0.3, 0.07
+            font_size: self.width/7
+            font_name: "Comic"
+            text: "Login"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginBtn()
+
+
+        MDRoundFlatButton:
+
+            pos_hint:{"center_x":0.5,"y":0.05}
+            size_hint: 0.8, 0.05
+            font_size: self.width/20
+            font_name: "Comic"
+            text: "Don't have an Account? Create One"
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createBtn()
+
+
+<ControlWindow>:
+    name: "control"
+    n: n
+    light_text: light_text
+    light_icon: light_icon
+
+    canvas.before:
+        Color:
+            rgba: (238/255,248/255,247/255,0.8)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        cols: 1
+        Label:
+            id: n
+            font_size: self.width/4
+            font_name: "Comic"
+            pos_hint:{"x": 0.3, "top":0.95}
+            size_hint:0.3, 0.15
+            text: "Welcome Home "
+            color: (92/255, 64/255, 51/255, 1)
+
+        Label:
+            font_size: self.width/10
+            font_name: "Comic"
+            pos_hint:{"x": 0.2, "top":0.9}
+            size_hint:0.3, 0.15
+            text: "What do you want to do? "
+            color: (92/255, 64/255, 51/255, 1)
+
+        MDIconButton:
+            pos_hint:{"center_x":0.25,"center_y":0.25}
+            size_hint_x: 0.3
+            size_hint_y: 0.2
+            icon: "door-closed-lock"
+            icon_size: "64sp"
+            md_bg_color: (1, 1, 1, 1)
+            on_release:
+                root.unavailable()
+
+        Label:
+            font_size: self.width/9
+            font_name: "Comic"
+            pos_hint:{"center_x":0.25,"center_y":0.38}
+            size_hint:0.3, 0.15
+            text: "Door"
+            color: (92/255, 64/255, 51/255, 1)
+
+        MDIconButton:
+            pos_hint:{"center_x":0.75,"center_y":0.25}
+            size_hint_x: 0.3
+            size_hint_y: 0.2
+            icon: "air-conditioner"
+            icon_size: "64sp"
+            md_bg_color: (1, 1, 1, 1)
+            on_release:
+                root.unavailable()
+
+        Label:
+            font_size: self.width/9
+            font_name: "Comic"
+            pos_hint:{"center_x":0.75,"center_y":0.38}
+            size_hint:0.3, 0.15
+            text: "Air conditioner"
+            color: (92/255, 64/255, 51/255, 1)
+
+        MDIconButton:
+            pos_hint:{"center_x":0.25,"center_y":0.58}
+            size_hint_x: 0.3
+            size_hint_y: 0.2
+            icon: "shower"
+            icon_size: "64sp"
+            md_bg_color: (1, 1, 1, 1)
+            on_release:
+                app.root.current = "bathroom"
+                root.manager.transition.direction = "right"
+
+        Label:
+            font_size: self.width/9
+            font_name: "Comic"
+            pos_hint:{"center_x":0.25,"center_y":0.71}
+            size_hint:0.3, 0.15
+            text: "Bathroom"
+            color: (92/255, 64/255, 51/255, 1)
+
+        MDIconButton:
+            id: light_icon
+            pos_hint:{"center_x":0.75,"center_y":0.58}
+            size_hint_x: 0.3
+            size_hint_y: 0.2
+            icon: "lightbulb-variant-outline"
+            icon_size: "64sp"
+            md_bg_color: (1, 1, 1, 1)
+            on_release:
+                root.light_pressed()
+        Label:
+            font_size: self.width/9
+            font_name: "Comic"
+            pos_hint:{"center_x":0.75,"center_y":0.71}
+            size_hint:0.3, 0.15
+            text: "Light"
+            color: (92/255, 64/255, 51/255, 1)
+
+        Label:
+            id: light_text
+            font_size: self.width/9
+            font_name: "Comic"
+            pos_hint:{"center_x":0.75,"center_y":0.52}
+            size_hint:0.3, 0.15
+            text: "stat is "
+            color: (92/255, 64/255, 51/255, 1)
+
+        MDIconButton:
+            pos_hint:{"center_x":0.93,"center_y":0.05}
+            size_hint_x: 0.1
+            size_hint_y: 0.1
+            icon: "logout"
+            icon_size: "50sp"
+           #md_bg_color: (1, 1, 1, 1)
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
+
+       # MDIconButton:
+        #    pos_hint:{"center_x":0.8, "center_y":0.05}
+         #   size_hint_x: 0.1
+          #  size_hint_y: 0.1
+           # icon: "web-refresh"
+            #icon_size: "50sp"
+           #md_bg_color: (1, 1, 1, 1)
+            #on_release:
+             #   app.connection()
+
+
+<BathRoom>
+    name: "bathroom"
+    numOfShowers: numOfShowers
+    boiler_text: boiler_text
+    boiler_icon: boiler_icon
+
+    canvas.before:
+        Color:
+            rgba: (238/255,248/255,247/255,0.8)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+        cols: 1
+
+        Image:
+            source: 'bath4.png'
+            keep_ratio: True
+            allow_stretch: True
+            pos_hint: {'center_x': .5,'center_y':0.5 }
+
+        Label:
+            font_size: self.width/4
+            font_name: "Comic"
+            pos_hint:{"center_x": 0.5, "y":0.8}
+            size_hint:0.3, 0.3
+            text: "Bathroom"
+            color: (92/255, 64/255, 51/255, 1)
+
+  #      Label:
+   #         text: 'Boiler'
+    #        font_size: self.width/4
+     #       font_name: "Comic"
+      #      pos_hint: {"center_x":0.3 , "y":0.7}
+       #     size_hint: 0.4, 0.12
+        #   color: (92/255, 64/255, 51/255, 1)
+
+        Label:
+            id: numOfShowers
+            text: 'number of showers'
+            font_size: self.width/8
+            font_name: "Comic"
+            pos_hint: {"center_x":0.25 , "y":0.35}
+            size_hint: 0.4, 0.12
+            color: (92/255, 64/255, 51/255, 1)
+
+        Spinner:
+            id: numOfShowers
+            text: "press to choose"
+            values: ["1", "2", "more"]
+            pos_hint: {"center_x":0.25 , "y":0.3}
+            size_hint: 0.4, 0.07
+            font_size: self.width/10
+            font_name: "Comic"
+            background_normal: ''
+            background_color: 238/255,248/255,247/255,0.8
+            color: (92/255, 64/255, 51/255, 1)
+
+        MDIconButton:
+            id: boiler_icon
+            pos_hint:{"center_x":0.75,"center_y":0.25}
+            size_hint_x: 0.3
+            size_hint_y: 0.2
+            icon: "hot-tub"
+            icon_size: "110sp"
+            md_bg_color:238/255,248/255,247/255,0.8
+
+            on_release:
+                root.boiler_pressed()
+
+        Label:
+            text: 'Boiler'
+            font_size: self.width/8
+            font_name: "Comic"
+            pos_hint: {"center_x":0.75 , "y":0.35}
+            size_hint: 0.4, 0.12
+            color: (92/255, 64/255, 51/255, 1)
+
+        Label:
+            id: boiler_text
+            font_size: self.width/9
+            font_name: "Comic"
+            pos_hint:{"center_x":0.75,"y":0.3}
+            size_hint:0.3, 0.15
+            text: "stat is "
+            color: (92/255, 64/255, 51/255, 1)
+
+        Button:
+            id: temp
+            text: root.val + root.unit
+            font_size: self.width/5
+            pos_hint:{"center_x":0.5, "center_y":0.7}
+            size_hint:0.45, 0.45
+            color: (92/255, 64/255, 51/255, 1)
+            background_normal: ''
+            background_color: 0,0,0,0
+            canvas:
+                Color:
+                    rgba: 92/255, 64/255, 51/255, 1
+                Line:
+                    circle:(self.center_x, self.center_y, self.width/3, -150, root.scale)
+                    width: 5
+                    cap: 'round'
+
+        Image:
+            source: 'round-360-degree-scale-removebg.png'
+            keep_ratio: True
+            allow_stretch: True
+            pos_hint: {'center_x': .5,'center_y':0.7 }
+            size_hint: 0.5, 0.5
+            background_normal: ''
+            background_color: 238/255,248/255,247/255,0.8
+
+        MDIconButton:
+            pos_hint:{"center_x":0.8, "center_y":0.05}
+            size_hint_x: 0.1
+            size_hint_y: 0.1
+            icon: "home"
+            icon_size: "50sp"
+            md_bg_color: (1, 1, 1, 1)
+            on_release:
+                app.root.current = "control"
+                root.manager.transition.direction = "up"
+
+        MDIconButton:
+            pos_hint:{"center_x":0.93,"center_y":0.05}
+            size_hint_x: 0.1
+            size_hint_y: 0.1
+            icon: "logout"
+            icon_size: "50sp"
+           #md_bg_color: (1, 1, 1, 1)
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
