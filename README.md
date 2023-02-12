@@ -1,5 +1,7 @@
 Home Automation System with IoT Application
 
+[poster.pdf](https://github.com/AlumaElia/SmartHome/files/10715938/poster.pdf) 
+
 Introduction
 
 This project presents the design and implementation of a home automation system integrated with an IoT application. The system consists of two smart systems: a smart light and a smart boiler. The system is built using the ESP8266 microcontroller and a UI developed using the Kivy framework. The system allows users to control and monitor these two devices from anywhere, at any time, through a user-friendly app.
@@ -21,4 +23,4 @@ The Kivy UI was developed using the Kivy framework and it communicates with the 
 Conclusion
 
 The home automation system integrated with an IoT application provides a convenient solution for controlling and monitoring the smart light and smart boiler. The system is easy to use and provides users with complete control over these two devices, from anywhere, at any time. This project demonstrates the potential for integrating IoT technology into home automation systems and using Python and Kivy for the development of the UI and the IoT app. The use of the Mosquitto broker facilitates communication between the UI and the microcontroller. It provides a useful starting point for further development and improvement.
-[poster.pdf](https://github.com/AlumaElia/SmartHome/files/10715938/poster.pdf)
+
